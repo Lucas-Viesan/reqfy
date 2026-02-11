@@ -1,0 +1,38 @@
+[
+  {
+    "ContainingType": "ReqFy.Controllers.SolicitacaoController",
+    "Method": "CriarSolicitacao",
+    "RelativePath": "Solicitacao",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "solicitacaoDto",
+        "Type": "ReqFy.Dtos.CriarSolicitacaoDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ReqFy.Controllers.SolicitacaoController",
+    "Method": "GetSolicitacaos",
+    "RelativePath": "Solicitacao",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[ReqFy.Models.Solicitacao, ReqFy, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  }
+]

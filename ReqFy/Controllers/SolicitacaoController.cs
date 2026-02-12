@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Controllers;
 using ReqFy.Data;
 using ReqFy.Dtos;
@@ -14,24 +15,41 @@ namespace ReqFy.Controllers
     {
         private SolicitacaoService _service;
         private SolicitacaoContext _context;
-        public SolicitacaoController(SolicitacaoService service, SolicitacaoContext context)
+        private IMapper _mapper;
+        public SolicitacaoController(SolicitacaoService service, SolicitacaoContext context, IMapper mapper)
         {
             _service = service;
             _context = context;
+            _mapper = mapper;
         }
 
         [HttpPost]
         public IActionResult CriarSolicitacao([FromBody] CriarSolicitacaoDto solicitacaoDto)
         {
-             Solicitacao solicitacao = _service.postSolicitacao(solicitacaoDto);
+            var dto = _service.postSolicitacao(solicitacaoDto);
 
-            return Created("", solicitacao);
+            return Created("", dto);
         }
 
         [HttpGet]
-        public IEnumerable<Solicitacao> GetSolicitacaos()
+        public IActionResult RetornarTodasSolicitacoes()
         {
-            return _context.Solicitacaos.ToList();
+            var dto = _service.GetSolicitacaos();
+        
+            return Ok(dto);
+            
+        }
+
+        [HttpPut("{id}")]
+        public IActionResult AtualizarSolicitacao(int id, [FromBody] AtualizaSolicitacaoDto atualizaDto)
+        {
+            var solicitacaoAtualizada = _service.AtualizarSolicitacao(id, atualizaDto);
+
+            if (solicitacaoAtualizada == null)
+            {
+                return NotFound();
+            }
+            return Ok(solicitacaoAtualizada);
         }
 
     }

@@ -16,7 +16,7 @@ namespace ReqFy.Service
             _mapper = mapper;
         }
 
-        public Solicitacao postSolicitacao(CriarSolicitacaoDto solicitacaoDto)
+        public SolicitacaoDetalhesDto postSolicitacao(CriarSolicitacaoDto solicitacaoDto)
         {
             Solicitacao solicitacao = _mapper.Map<Solicitacao>(solicitacaoDto);
             solicitacao.Status = "Aberta";
@@ -24,8 +24,29 @@ namespace ReqFy.Service
             solicitacao.DataAtualizacao = null;
             _context.Solicitacaos.Add(solicitacao);
             _context.SaveChanges();
-            return solicitacao;
+            var detalhesDto = _mapper.Map<SolicitacaoDetalhesDto>(solicitacao);
+            return detalhesDto;
+        }
+
+        public IEnumerable<RecuperaTodasSolicitacoesDto> GetSolicitacaos()
+        {
+            var solicitacao = _context.Solicitacaos.ToList();
+            return _mapper.Map<List<RecuperaTodasSolicitacoesDto>>(solicitacao);
+        }
+
+        public RetornaSolicitacaoAtualizadaDto AtualizarSolicitacao(int id, AtualizaSolicitacaoDto atualizaDto)
+        {
+            var solicitacao = _context.Solicitacaos.FirstOrDefault(s => s.Id == id);
+            if (solicitacao == null)
+            {
+                return null;
+            }
+
+            solicitacao.DataAtualizacao = DateTimeOffset.Now;
+            solicitacao.Descricao = atualizaDto.Descricao;
+            _context.SaveChanges();
+            var solicitacaoAtualizada = _mapper.Map<RetornaSolicitacaoAtualizadaDto>(solicitacao);
+            return solicitacaoAtualizada; 
         }
     }
-
 }

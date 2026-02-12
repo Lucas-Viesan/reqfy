@@ -42,3 +42,4 @@ C:\Users\LucasVieira\source\repos\ReqFy\ReqFy\obj\Debug\net6.0\refint\ReqFy.dll
 C:\Users\LucasVieira\source\repos\ReqFy\ReqFy\obj\Debug\net6.0\ReqFy.pdb
 C:\Users\LucasVieira\source\repos\ReqFy\ReqFy\obj\Debug\net6.0\ReqFy.genruntimeconfig.cache
 C:\Users\LucasVieira\source\repos\ReqFy\ReqFy\obj\Debug\net6.0\ref\ReqFy.dll
+C:\Users\LucasVieira\source\repos\ReqFy\ReqFy\obj\Debug\net6.0\ReqFy.sourcelink.json

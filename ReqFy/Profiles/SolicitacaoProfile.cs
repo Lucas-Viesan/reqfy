@@ -9,6 +9,9 @@ namespace ReqFy.Profiles
         public SolicitacaoProfile()
         {
             CreateMap<CriarSolicitacaoDto, Solicitacao>();
+            CreateMap<Solicitacao, SolicitacaoDetalhesDto>();
+            CreateMap<Solicitacao, RecuperaTodasSolicitacoesDto>();
+            CreateMap<Solicitacao, RetornaSolicitacaoAtualizadaDto>();
         }
 
     }

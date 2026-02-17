@@ -45,5 +45,26 @@
       }
     ],
     "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ReqFy.Controllers.SolicitacaoController",
+    "Method": "AtualizarStatus",
+    "RelativePath": "Solicitacao/{id}/status",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "atualizaStatusDto",
+        "Type": "ReqFy.Dtos.AtualizaStatusDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
   }
 ]

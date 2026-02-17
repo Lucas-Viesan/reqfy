@@ -35,9 +35,9 @@ namespace ReqFy.Controllers
         public IActionResult RetornarTodasSolicitacoes()
         {
             var dto = _service.GetSolicitacaos();
-        
+
             return Ok(dto);
-            
+
         }
 
         [HttpPut("{id}")]
@@ -50,6 +50,27 @@ namespace ReqFy.Controllers
                 return NotFound();
             }
             return Ok(solicitacaoAtualizada);
+        }
+
+        [HttpPut("{id}/status")]
+        public IActionResult AtualizarStatus(int id, [FromBody] AtualizaStatusDto atualizaStatusDto)
+        {
+            if (atualizaStatusDto == null)
+                return BadRequest("Dados inválidos.");
+
+            try
+            {
+                var statusAtualizado = _service.AtualizarStatus(id, atualizaStatusDto);
+
+                if (statusAtualizado == null)
+                    return NotFound();
+
+                return Ok(statusAtualizado);
+            }
+            catch (InvalidOperationException ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
     }

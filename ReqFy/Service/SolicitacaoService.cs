@@ -34,6 +34,16 @@ namespace ReqFy.Service
             return _mapper.Map<List<RecuperaTodasSolicitacoesDto>>(solicitacao);
         }
 
+        public RetornaSolicitacaoPorIdDto GetSolicitacaoById(int id)
+        {
+            var solicitacao = _context.Solicitacaos.FirstOrDefault(x => x.Id == id);
+            if (solicitacao == null)
+            {
+                return null;
+            }
+            return _mapper.Map<RetornaSolicitacaoPorIdDto>(solicitacao);
+        }
+
         public RetornaSolicitacaoAtualizadaDto AtualizarSolicitacao(int id, AtualizaSolicitacaoDto atualizaDto)
         {
             var solicitacao = _context.Solicitacaos.FirstOrDefault(s => s.Id == id);

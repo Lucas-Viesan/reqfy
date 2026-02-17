@@ -27,6 +27,22 @@
   },
   {
     "ContainingType": "ReqFy.Controllers.SolicitacaoController",
+    "Method": "RetornarSolicitacaoPorId",
+    "RelativePath": "Solicitacao/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ReqFy.Controllers.SolicitacaoController",
     "Method": "AtualizarSolicitacao",
     "RelativePath": "Solicitacao/{id}",
     "HttpMethod": "PUT",

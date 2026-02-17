@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ReqFy")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f79d5728323d913d8c36b7d33d936ca3a2c23ad6")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1aba5e73a39e6e8f122d1dd77d5b4ba53be4c44a")]
 [assembly: System.Reflection.AssemblyProductAttribute("ReqFy")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ReqFy")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -11,8 +11,10 @@ namespace ReqFy.Profiles
             CreateMap<CriarSolicitacaoDto, Solicitacao>();
             CreateMap<Solicitacao, SolicitacaoDetalhesDto>();
             CreateMap<Solicitacao, RecuperaTodasSolicitacoesDto>();
+            CreateMap<Solicitacao, RetornaSolicitacaoPorIdDto>();
             CreateMap<Solicitacao, RetornaSolicitacaoAtualizadaDto>();
             CreateMap<Solicitacao, RetornaAtualizacaoStatusDto>();
+
         }
 
     }

@@ -28,7 +28,7 @@ namespace ReqFy.Controllers
         {
             var dto = _service.postSolicitacao(solicitacaoDto);
 
-            return Created("", dto);
+            return CreatedAtAction(nameof(RetornarSolicitacaoPorId), new { id = dto.Id }, dto);
         }
 
         [HttpGet]
@@ -38,6 +38,17 @@ namespace ReqFy.Controllers
 
             return Ok(dto);
 
+        }
+
+        [HttpGet("{id}")]
+        public IActionResult RetornarSolicitacaoPorId(int id)
+        {
+            var dto = _service.GetSolicitacaoById(id);
+            if (dto == null)
+            {
+                return NotFound();
+            }
+            return Ok(dto);
         }
 
         [HttpPut("{id}")]
